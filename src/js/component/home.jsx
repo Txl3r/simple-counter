@@ -1,24 +1,30 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect } from "react";
+import Card from "react";
 
 //create your first component
 const Home = () => {
+	const [count2, setCount2] = useState(0);
+	const [count, setCount] = useState(0);
+	useEffect(() => {
+		setInterval(() => {
+			setCount2((count2) => count2 + 1);
+		}, 10000);
+		setInterval(() => {
+			setCount((count) => count + 1);
+		}, 1000);
+	}, []);
+
+	if (count === 10) {
+		setCount(0);
+	}
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="card" style={{ width: "18rem" }}>
+			<div className="card-body">
+				<h5 className="card-title">
+					{count}
+					{count2}
+				</h5>
+			</div>
 		</div>
 	);
 };
