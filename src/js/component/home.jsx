@@ -3,26 +3,25 @@ import Card from "react";
 
 //create your first component
 const Home = () => {
-	const [count2, setCount2] = useState(0);
 	const [count, setCount] = useState(0);
 	useEffect(() => {
-		setInterval(() => {
-			setCount2((count2) => count2 + 1);
-		}, 10000);
 		setInterval(() => {
 			setCount((count) => count + 1);
 		}, 1000);
 	}, []);
 
-	if (count === 10) {
-		setCount(0);
-	}
+	let one = Math.floor(count / 1000);
+	let two = Math.floor(count / 100);
+	let three = Math.floor(count / 10);
+	let four = Math.floor(count / 1);
 	return (
-		<div className="card" style={{ width: "18rem" }}>
+		<div className="card bg-dark text-light" style={{ width: "18rem" }}>
 			<div className="card-body">
 				<h5 className="card-title">
-					{count}
-					{count2}
+					{one % 10}
+					{two % 10}
+					{three % 10}
+					{four % 10}
 				</h5>
 			</div>
 		</div>
