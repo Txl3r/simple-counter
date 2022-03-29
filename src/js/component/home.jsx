@@ -17,12 +17,12 @@ const Home = () => {
 	return (
 		<div className="card bg-dark text-light" style={{ width: "18rem" }}>
 			<div className="card-body">
-				<h5 className="card-title">
+				<h1 className="fa fa-clock text-light">
 					{one % 10}
 					{two % 10}
 					{three % 10}
 					{four % 10}
-				</h5>
+				</h1>
 			</div>
 		</div>
 	);
